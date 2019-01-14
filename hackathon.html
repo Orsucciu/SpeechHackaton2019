@@ -4,24 +4,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<body>
+<script>
+	function checkGet(){
+		if (window.location.search.substring(0, 5) == "?url="){
+			alert(window.location.search.substring(5));
+			document.getElementById("myVideo").src=window.location.search.substring(5);
+		}
+	}
+</script>
+<body onload="checkGet()">
 
 </div>
-<form name="f2" method="post" action="donnee.php" class="w3-container">
+
+
+<form name="f2" method="get" action="hackathon.html" class="w3-container">
  
- <p>
+<p>
  <label for='password'>URL:</label>
- <input class="w3-input" type="text" name="url" id='url'/></p>
+ <input class="w3-input" type="text" name="url" id='url' value=""/></p>
  <p>ou</p>
  <p>
  <label>Fichier:</label>
- <input class="w3-input" type="file" name="fichier" id='fichier'/></p>
+ <input class="w3-input" type="file" name="fichier" id='fichier' /><//></p>
 
- <button onclick="valider()">Soumettre</button></p>
 </form>
+ <button onclick="valider()">Soumettre</button></p>
+
+<div>
+	<video src="" id="myVideo" controls="true"></video>
+</div>
 
 <script type="text/javascript">
 
+	function valider(){
+		var parameters = location.search.substring(1).split("&");
+    	var temp = parameters[0].split("=");
+    	l = document.getElementById("url").value;
+		if(document.getElementById("url").value==""){
+			document.getElementById("myVideo").src = window.URL.createObjectURL(document.getElementById("fichier").files[0]);
+		}else{
+			window.location.href = "?url="+l;
+		}
+		/*if(document.getElementById("url").value==""){
+			document.getElementById("myVideo").src = window.URL.createObjectURL(document.getElementById("fichier").files[0]);
+		}*/
+	}
 </script>
 </body>
 </html>
