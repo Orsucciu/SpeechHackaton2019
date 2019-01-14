@@ -1,0 +1,178 @@
+.container{
+    margin-top:20px;
+}
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.titre{
+    background: red;
+    height: 50px;
+    font-size: 30px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.titre_label{
+    margin-left: 15px;
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+.video_url_container{
+    float: left;
+    width:50%;
+    height: 40%;
+}
+.video_url{    
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    height: 60%;
+}
+.fichier_audio_container{
+    float: right;
+    width: 50%;
+    height: 40%;
+    border-left-style: solid;
+}
+.fichier_audio{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    height: 60%;
+}
+.upload{
+    margin-top: 25px;
+    height: 400px;
+    width: 100%;
+}
+.bouton{
+    width:10%;
+    margin-top:50px;
+    float: left;
+}
+.url{
+    border-radius: 4px;
+    height: 25px;
+    border: 1px solid;
+    width: 370px;
+}
+.w3-container{
+    background: lightblue;
+    height: 380px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.formulaire{
+    border: 2px solid;
+    border-radius: 4px;
+    height: 275px;
+    margin-top: 40px;
+}
+.information{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.btn-success{
+    width: 120px;
+    font-size: 17px;
+}
+
+/* CSS page retour*/
+.formulaire_retour{
+    border: 2px solid;
+    border-radius: 4px;
+    height: 650px;
+    margin-top: 40px;
+}
+.form_retour{
+    height: 700px;
+}
+.affichage{
+    height: 400px;
+    width: 100%;
+}
+.affichage_texte{
+    width:60%;
+    margin: auto;
+} 
+ .zone_text{
+    width: 100%;
+    height: 50px;
+    vertical-align: text-top;
+} 
+.recherche{
+    height: 200px;
+    margin-top: 70px;
+}
+/* .affichage_mot{
+    background: lightgreen;
+    height: 30px;
+} */
+.affichage_texte{
+    margin-top: 50px;
+}
+.miniature{
+    height: 196px;
+    width: 346px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.container_retour{
+    border: 2px solid;
+    height: 275px;
+}
+.titre_video{
+    width: 60%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+.section1{
+    width: 50%;
+    margin: auto;
+    float: left;
+}
+.section2{
+    width: 50%;
+    margin: auto;
+    float: right;   
+    border-left-style: solid; 
+}
+.section_recherche_mot{
+    width: 50%;
+    height: 100px;
+    margin: auto;
+}
+.section_affichage_mot{
+    width: 50%;
+    height: 100px;
+    margin: auto;
+    
+}
+.recherche_mot, .nb_occurences{
+    margin-top: 5%;
+}
+.btn_recherche{
+    margin-top: 10px;
+}
+.affichage_zone_texte{
+    margin-top: 15px;
+}
