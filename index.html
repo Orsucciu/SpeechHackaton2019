@@ -20,6 +20,7 @@
         </form>
 		<div id="audio_space"></div>
 		
+		<script src="lib/recorder.js"></script>
         <script type="text/javascript">
 			function processAudio(){
 				const audioFile = window.URL.createObjectURL(document.getElementById('fichier').files[0]);
@@ -51,6 +52,7 @@
 				highpass.type = "lowpass";
 				highpass.frequency.value = 5000;
 				highpass.gain.value = -1;
+				
 			}
         </script>
     </body>
