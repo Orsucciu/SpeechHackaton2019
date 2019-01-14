@@ -1,0 +1,42 @@
+{
+	"coord": {
+		"lon": -0.13,
+		"lat": 51.51
+	}, 
+	"météo": [
+		{
+		"id": 300, 
+		"principal": "Bruine",
+		"description": "intensité lumineuse bruine", 
+		"icône": "09d"
+		}
+	], 
+	"base": "stations", 
+	"principal": {
+		"temp": 280.32, 
+		"pression": 1012, 
+		"humidité": 81, 
+		"temp_min": 279.15, 
+		"temp_max" : 281.15
+	}, 
+	"visibilité": 10000, 
+	"vent": {
+		"vitesse": 4.1, 
+		"deg": 80
+	}, 
+	"nuages": {
+		"tout": 90
+	}, 
+	"dt": 1485789600, 
+	"sys": {
+		"type": 1, 
+		"id": 5091, 
+		"message": 0.0103, 
+		"pays": "GB", 
+		"sunrise": 1485762037, 
+		"coucher du soleil": 1485794875
+	}, 
+	"id": 2643743, 
+	"nom": "Londres", 
+	"cod": 200
+}

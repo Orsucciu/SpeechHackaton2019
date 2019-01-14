@@ -1,0 +1,168 @@
+{
+  "actions": [
+    {
+      "result": {
+        "source_information": {
+          "mime_type": "video/unknown",
+          "video_information": {
+            "width": 640,
+            "height": 360,
+            "codec": "MPEG-4 part 2",
+            "pixel_aspect_ratio": "1:1"
+          },
+          "audio_information": {
+            "codec": "AAC (Advanced Audio Coding)",
+            "sample_rate": 44100,
+            "channels": 2
+          }
+        },
+        "items": [
+          {
+            "start_time_offset": 0.84,
+            "end_time_offset": 0.95,
+            "text": "we",
+            "confidence": 97
+          },
+          {
+            "start_time_offset": 0.95,
+            "end_time_offset": 1.14,
+            "text": "want",
+            "confidence": 70
+          },
+          {
+            "start_time_offset": 1.14,
+            "end_time_offset": 1.2,
+            "text": "to",
+            "confidence": 78
+          },
+          {
+            "start_time_offset": 1.2,
+            "end_time_offset": 1.41,
+            "text": "hear",
+            "confidence": 90
+          },
+          {
+            "start_time_offset": 1.41,
+            "end_time_offset": 1.61,
+            "text": "from",
+            "confidence": 95
+          },
+          {
+            "start_time_offset": 1.61,
+            "end_time_offset": 1.93,
+            "text": "you",
+            "confidence": 86
+          },
+          {
+            "start_time_offset": 2.45,
+            "end_time_offset": 2.67,
+            "text": "let's",
+            "confidence": 91
+          },
+          {
+            "start_time_offset": 2.67,
+            "end_time_offset": 2.86,
+            "text": "get",
+            "confidence": 74
+          },
+          {
+            "start_time_offset": 2.86,
+            "end_time_offset": 2.92,
+            "text": "the",
+            "confidence": 97
+          },
+          {
+            "start_time_offset": 2.92,
+            "end_time_offset": 3.58,
+            "text": "conversation",
+            "confidence": 84
+          },
+          {
+            "start_time_offset": 3.58,
+            "end_time_offset": 3.96,
+            "text": "started",
+            "confidence": 88
+          },
+          {
+            "start_time_offset": 3.96,
+            "end_time_offset": 4.24,
+            "text": "about",
+            "confidence": 91
+          },
+          {
+            "start_time_offset": 4.24,
+            "end_time_offset": 4.5,
+            "text": "what's",
+            "confidence": 91
+          },
+          {
+            "start_time_offset": 4.5,
+            "end_time_offset": 4.86,
+            "text": "next",
+            "confidence": 89
+          },
+          {
+            "start_time_offset": 4.86,
+            "end_time_offset": 4.98,
+            "text": "for",
+            "confidence": 93
+          },
+          {
+            "start_time_offset": 4.98,
+            "end_time_offset": 5.29,
+            "text": "Hewlett",
+            "confidence": 72
+          },
+          {
+            "start_time_offset": 5.29,
+            "end_time_offset": 5.69,
+            "text": "Packard",
+            "confidence": 92
+          },
+          {
+            "start_time_offset": 6.36,
+            "end_time_offset": 6.77,
+            "text": "this",
+            "confidence": 95
+          },
+          {
+            "start_time_offset": 6.8,
+            "end_time_offset": 6.98,
+            "text": "is",
+            "confidence": 96
+          },
+          {
+            "start_time_offset": 6.98,
+            "end_time_offset": 7.36,
+            "text": "HP",
+            "confidence": 83
+          },
+          {
+            "start_time_offset": 7.36,
+            "end_time_offset": 7.87,
+            "text": "next",
+            "confidence": 90
+          },
+          {
+            "start_time_offset": 8.22,
+            "end_time_offset": 8.61,
+            "text": "this",
+            "confidence": 96
+          },
+          {
+            "start_time_offset": 8.61,
+            "end_time_offset": 9.16,
+            "text": "matters",
+            "confidence": 84
+          }
+        ]
+      },
+      "headers": {},
+      "status": "finished",
+      "action": "recognizespeech",
+      "version": "v2"
+    }
+  ],
+  "jobID": "w-eu_8991c0e5-0256-48b1-863d-cb71dfcd4f53",
+  "status": "finished"
+}
