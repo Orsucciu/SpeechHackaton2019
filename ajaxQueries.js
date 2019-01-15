@@ -47,6 +47,7 @@ function getJson() {
 		document.getElementById("loading").visibility = "hidden";
 		document.getElementById("zone").innerHTML = "";
 		console.log(this.responseText);
+		responseText(this.responseText);
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey="+APIKEY;
@@ -101,6 +102,7 @@ function getJsonQ(job){
 		document.getElementById("loading").visibility = "hidden";
 		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
+	  reloadResponse(this.responseText);
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
