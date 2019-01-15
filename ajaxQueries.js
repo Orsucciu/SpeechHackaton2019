@@ -7,6 +7,7 @@ var button = document.getElementById("submit");
 var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.gif'>";
 
 var jsonString = "";
+var JSONFILE;
 
 //tableau de mots
 var mots = [];
@@ -48,6 +49,7 @@ function getJson() {
 		document.getElementById("zone").innerHTML = "";
 		console.log(this.responseText);
 		responseText(this.responseText);
+		JSONFILE = this.responseText;
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey="+APIKEY;
@@ -103,6 +105,7 @@ function getJsonQ(job){
 		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
 	  reloadResponse(this.responseText);
+	  JSONFILE = this.responseText;
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
