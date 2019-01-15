@@ -8,6 +8,7 @@ var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.g
 
 var jsonString = "";
 
+var jsonFile;
 //tableau de mots
 var mots = [];
 
@@ -35,6 +36,7 @@ function getJobIdUrl(url, loc) {
   };
   xhttp.open("POST", "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url="+url+"&language_model="+loc+"&apikey="+APIKEY, true);
   xhttp.send();
+  //ajout sur audio et video
 }
 
 // Recuperation du JSON
@@ -92,6 +94,7 @@ function getJobFile(locale){
 			getJsonQ(responseText);
 		}
 	});
+	//changement audio et video src puis  test en js pour mettre la visibillity none to block ou inline
 }
 
 function getJsonQ(job){
@@ -103,6 +106,7 @@ function getJsonQ(job){
 		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
 	  reloadResponse(this.responseText);
+	  jsonFile = this.responseText;
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
