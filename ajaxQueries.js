@@ -6,6 +6,11 @@ var APIKEY = "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
 var button = document.getElementById("submit");
 var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.gif'>";
 
+var jsonString = "";
+
+//tableau de mots
+var mots = [];
+
 function getData(){
 	var loc = document.getElementById("locale").value;
 	if (document.getElementById("url").value == ""){
@@ -37,15 +42,39 @@ function getJson() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+		reloadResponse(this.responseText);
 		document.getElementById("status").value = "Done!";
 		document.getElementById("loading").visibility = "hidden";
 		document.getElementById("zone").innerHTML = "";
 		console.log(this.responseText);
+		responseText(this.responseText);
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey="+APIKEY;
   xhttp.open("GET", link, true);
   xhttp.send();
+}
+
+function reloadResponse(dumb){
+	console.log(dumb);
+	var i = 0;
+	//disparition et appararition des components
+	var myNode = document.getElementById("firstI");
+	while (myNode.firstChild) {
+		myNode.removeChild(myNode.firstChild);
+	}
+	document.getElementById("secondI").style.display = "inline";
+	
+	//parsage JSON
+	var obj = JSON.parse(dumb, function (key, value) {
+	  if (key == "text") {
+		jsonString = jsonString + value + " ";
+		mots[i] = value;
+		i = i + 1;
+	  }
+	});
+	console.log(jsonString);
+	document.getElementById("message").value = jsonString;
 }
 
 function getJobFile(locale){
@@ -64,6 +93,7 @@ function getJobFile(locale){
 		}
 	});
 }
+
 function getJsonQ(job){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -72,6 +102,7 @@ function getJsonQ(job){
 		document.getElementById("loading").visibility = "hidden";
 		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
+	  reloadResponse(this.responseText);
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
