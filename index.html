@@ -10,10 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
 		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
-		<script type="text/javascript" src="ajaxQueries.js"></script>
-		<script type="text/javascript" src="checkInputs.js"></script>
-		<script type="text/javascript" src="displays.js"></script>
-		<script type="text/javascript" src="timestamp.js"></script>
+		<script type="text/javascript" src="functions.js"></script>
     </head>
     <body>
 	<div id="firstI">
@@ -82,59 +79,57 @@
                     <label class="titre_label" for="titre">Audio converter</label>
                 </div>
             </div>
-            <form name="f2" class="w3-container form_retour">
-                <div class="formulaire_retour">
-                    <div class="affichage">
-                        <div class="titre_video">
-                            <label class="titre_video"></label>
-                        </div>
-                        <div class="miniature">
-                            <div class="col-md-8">
-                                <div class="player">
-                                    <video id="video" class="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
-                                </div><!--./vid -->                                    
-                            </div><!--.col -->
-                        </div>
-                        <div class="affichage_texte">
-                            <div class="lbl_recherche_mot">
-                                <label class="label_recherche_mot">Transcription de l'audio en texte :</label>
-                            </div>
-                            <div class="affichage_zone_texte">
-								<textarea id="message" class="zone_text" value=""></textarea>
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="recherche">   
-                        <div class="section1">
-                            <div class="section_recherche_mot">
-                                <div class="lbl_recherche_mot">
-                                    <label class="label_recherche_mot">Entrez le mot à chercher :</label>
-                                </div>
-                                <div class="recherche_mot">
-                                    <input type="text" class="zone_rech_mot" id="rech_mot" >
-                                </div>
-                                <div class="bouton_recherche">
-                                    <button id="rech_mot_value" class="btn btn-success btn_recherche" onclick="searchTimeS(outId)">Rechercher</button>
-                                </div>
-                            </div>                            
-                        </div>
-                        <div class="section2">
-                            <div class="section_affichage_mot">
-                                <div class="temps">
-                                    <label class="label_recherche_mot">Résultats :</label>
-                                </div>
-                                <div class="temps_mot">
-                                    <textarea class="text_temps_mot"></textarea>
-                                </div>
-                                <div class="temps">
-                                    <!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                    
-                </div>                   
-            </form>
+			<div class="formulaire_retour">
+				<div class="affichage">
+					<div class="titre_video">
+						<label class="titre_video"></label>
+					</div>
+					<div class="miniature">
+						<div class="col-md-8">
+							<div class="player">
+								<video id="video" class="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
+							</div><!--./vid -->                                    
+						</div><!--.col -->
+					</div>
+					<div class="affichage_texte">
+						<div class="lbl_recherche_mot">
+							<label class="label_recherche_mot">Transcription de l'audio en texte :</label>
+						</div>
+						<div class="affichage_zone_texte">
+							<textarea id="message" class="zone_text" value=""></textarea>
+						</div>                            
+					</div>
+				</div>
+				<div class="recherche">   
+					<div class="section1">
+						<div class="section_recherche_mot">
+							<div class="lbl_recherche_mot">
+								<label class="label_recherche_mot">Entrez le mot à chercher :</label>
+							</div>
+							<div class="recherche_mot">
+								<input type="text" class="zone_rech_mot" id="rech_mot" >
+							</div>
+							<div class="bouton_recherche">
+								<button id="rech_mot_value" onclick="searchTimeS(outId)">Rechercher</button>
+							</div>
+						</div>                            
+					</div>
+					<div class="section2">
+						<div class="section_affichage_mot">
+							<div class="temps">
+								<label class="label_recherche_mot">Résultats :</label>
+							</div>
+							<div class="temps_mot">
+								<textarea class="text_temps_mot"></textarea>
+							</div>
+							<div class="temps">
+								<!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->
+							</div>
+						</div> 
+					</div>
+				</div>
+				
+			</div>
         </div>
 		</div>
     </body>
