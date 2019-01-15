@@ -12,6 +12,7 @@
         <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
 		<script type="text/javascript" src="ajaxQueries.js"></script>
 		<script type="text/javascript" src="checkInputs.js"></script>
+		<script type="text/javascript" src="displays.js"></script>
     </head>
     <body>
         <div class="container">
@@ -30,14 +31,14 @@
                             <div class="video_url">
                                 <label for='url'>URL:</label>
                                 <div class="barre_url">
-                                    <input onchange="conditionalInput()" class="url" type="text" name="url" id='url' value=""/></p>
+                                    <input onchange="conditionalInput(this.id)" class="url" type="text" name="url" id='url' value=""/></p>
                                 </div>
                             </div>
                         </div>
                         <div class="fichier_audio_container">
                             <div class="fichier_audio">
                                 <label>Fichier:</label>
-                                <input onchange="conditionalInput()" class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
+                                <input onchange="conditionalInput(this.id)" class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
                             </div>                        
                         </div>
                     </div>
