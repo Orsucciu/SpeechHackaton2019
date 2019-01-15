@@ -34,7 +34,8 @@ function getJson() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
+		afficherRetour(this.responseText);
+        //document.getElementById("demo").innerHTML = this.responseText;
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";

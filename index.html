@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
         <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
 		<script type="text/javascript" src="ajaxQueries.js"></script>
+		<script type="text/javascript" src="checkInputs.js"></script>
     </head>
     <body>
         <div class="container">
@@ -28,14 +29,14 @@
                             <div class="video_url">
                                 <label for='url'>URL:</label>
                                 <div class="barre_url">
-                                    <input class="url" type="text" name="url" id='url'/></p>
+                                    <input onchange="conditionalInput()" class="url" type="text" name="url" id='url'/></p>
                                 </div>
                             </div>
                         </div>
                         <div class="fichier_audio_container">
                             <div class="fichier_audio">
                                 <label>Fichier:</label>
-                                <input onchange="processAudio()" class="custom-file-input" type="file" name="input-file-preview" id="fichier" value="fichier.wav"/>
+                                <input class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
                             </div>                        
                         </div>
                     </div>

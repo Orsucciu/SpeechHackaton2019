@@ -26,7 +26,7 @@ function getJson() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);
-	  reloadResponse(this.reponseText);
+	  return(this.reponseText);
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
