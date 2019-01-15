@@ -2,7 +2,8 @@ var jobID;
 //var furl = "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
 // TEST EN LOCAL: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?file=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7'';
 //'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
-var APIKEY = "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
+var APIKEY = "ec308c92-e49b-4f9e-a256-9745e8b5c689";
+// old key: "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
 var button = document.getElementById("submit");
 var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.gif'>";
 
