@@ -79,52 +79,51 @@
                     <label class="titre_label" for="titre">Audio converter</label>
                 </div>
             </div>
-			<div class="formulaire_retour">
-				<div class="affichage">
-					<div class="titre_video">
-						<label class="titre_video"></label>
-					</div>
-					<div class="miniature">
-						<div class="col-md-8">
-							<div class="player">
-								<video id="video" class="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
-							</div><!--./vid -->                                    
-						</div><!--.col -->
-					</div>
-					<div class="affichage_texte">
-						<div class="lbl_recherche_mot">
-							<label class="label_recherche_mot">Transcription de l'audio en texte :</label>
+			<div class="form_retour">
+				<div class="formulaire_retour">
+					<div class="affichage">
+						<div class="titre_video">
+							<label class="titre_video"></label>
 						</div>
-						<div class="affichage_zone_texte">
-							<textarea id="message" class="zone_text" value=""></textarea>
-						</div>                            
-					</div>
-				</div>
-				<div class="recherche">   
-					<div class="section1">
-						<div class="section_recherche_mot">
+						<div class="miniature">
+								<div class="player">
+									<video id="video" class="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
+								</div>
+						</div>
+						<div class="affichage_texte">
 							<div class="lbl_recherche_mot">
-								<label class="label_recherche_mot">Entrez le mot à chercher :</label>
+								<label class="label_recherche_mot">Transcription de l'audio en texte :</label>
 							</div>
-							<div class="recherche_mot">
-								<input type="text" class="zone_rech_mot" id="rech_mot" >
-							</div>
-							<div class="bouton_recherche">
-								<button id="rech_mot_value" onclick="searchTimeS(document.getElementById('areaResults'), document.getElementById('rech_mot').value)">Rechercher</button>
-							</div>
-						</div>                            
+							<div class="affichage_zone_texte">
+								<textarea id="message" class="zone_text" value=""></textarea>
+							</div>                            
+						</div>
 					</div>
-					<div class="section2">
-						<div class="section_affichage_mot">
-							<div class="temps">
-								<label class="label_recherche_mot">Résultats :</label>
-							</div>
-							<div id="areaResults">
-							</div>
-						</div> 
-					</div>
+					<div class="recherche">   
+						<div class="section1">
+							<div class="section_recherche_mot">
+								<div class="lbl_recherche_mot">
+									<label class="label_recherche_mot">Entrez le mot à chercher :</label>
+								</div>
+								<div class="recherche_mot">
+									<input type="text" class="zone_rech_mot" id="rech_mot" >
+								</div>
+								<div class="bouton_recherche">
+									<button id="rech_mot_value" onclick="searchTimeS(document.getElementById('areaResults'), document.getElementById('rech_mot').value)">Rechercher</button>
+								</div>
+							</div>                            
+						</div>
+						<div class="section2">
+							<div class="section_affichage_mot">
+								<div class="temps">
+									<label class="label_recherche_mot">Résultats :</label>
+								</div>
+								<div id="areaResults">
+								</div>
+							</div> 
+						</div>
+					</div>					
 				</div>
-				
 			</div>
         </div>
 		</div>
