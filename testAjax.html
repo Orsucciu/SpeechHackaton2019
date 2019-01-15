@@ -9,8 +9,8 @@
 
 <script>
 var jobID;
-var furl = "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
-// TEST EN LOCAL: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?file=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7'';
+//var furl = https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7;
+var furl = '--form "language_model=en-gb" --form "file=@MacronGJ.mp3 --form "apikey=3293a469-23c9-4170-baf1-170fbae5b8b7 http://api.havenondemand.com/1/api/async/recognizespeech/v2'
 //'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
 
 
@@ -25,7 +25,7 @@ function getJobIdUrl() {
 	  getJson();
     }
   };
-  xhttp.open("POST", furl, true);
+  xhttp.open("GET", furl, true);
   xhttp.send();
 }
 
