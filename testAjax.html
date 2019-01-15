@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="getJobIdUrl()">Change Content</button>
+</div>
+
+<script>
+var jobID;
+//var furl = https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7;
+var furl = '--form "language_model=en-gb" --form "file=@MacronGJ.mp3 --form "apikey=3293a469-23c9-4170-baf1-170fbae5b8b7 http://api.havenondemand.com/1/api/async/recognizespeech/v2'
+//'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
+
+
+
+// Recuperation du JobID -> URL
+function getJobIdUrl() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	  jobID = this.responseText;
+	  jobID = jobID.slice(16,jobID.length - 3);
+	  getJson();
+    }
+  };
+  xhttp.open("GET", furl, true);
+  xhttp.send();
+}
+
+// Recuperation du JSON
+function getJson() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+		afficherRetour(this.responseText);
+        //document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
+  xhttp.open("GET", link, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
