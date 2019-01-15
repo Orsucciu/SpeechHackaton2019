@@ -130,7 +130,7 @@ function searchTimeS(outId, word){
 	var out = "";
 	var json = JSON.parse(JSONFILE);
 	for (var data in json.actions[0].result.items){
-		if(json.actions[0].result.items[data].text == word){
+		if(json.actions[0].result.items[data].text.toLowerCase() == word.toLowerCase()){
 			console.log(data);
 			var current = json.actions[0].result.items[data];
 			var precedent = "[Begin of File]";
