@@ -24,19 +24,33 @@
         <script type="text/javascript">
 			$(document).ready(function(){
 			  $("#ajTest").click(function(){
+				var file_data = $('#fichier').prop('files')[0];
+			    var form_data = new FormData();    
+				form_data.append('file', file_data);
 				$.ajax({
-					url: 'http://api.havenondemand.com/1/api/async/recognizespeech/v2',
+					url: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?apikey=4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e&language_model=en-gb',
 					type: 'POST',
-					data: ,
-					beforeSend: function(xhr) {
-						 xhr.setRequestHeader("Authentication", "Basic ZnJvbWFwcGx********uOnRoM24zcmQ1UmgzcjM=") //Some characters have been replaced for security but this is a true BASE64 of "username:password"
-					},
-					success: function(data){
-						alert(data);
+					data: form_data,
+					contentType: false,
+					processData: false,
+					success: function(responseText){
+						getJson(responseText);
 					}
 				});
 			  });
 			});
+			function getJson(job){
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+				  console.log(this.responseText);
+				  console.log(this.reponseText);
+				}
+				};
+				var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey=4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
+				xhttp.open("GET", link, true);
+				xhttp.send();
+			}
         </script>
     </body>
 </html>
