@@ -8,14 +8,15 @@
         <link href="bootstrap/css/indexcss.css" rel="stylesheet">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-        <script type="text/javascript" src="bootstrap//js/indexjs.js"></script>
+        <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
+		<script type="text/javascript" src="ajaxQueries.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="titre">
                 <label class="titre_label" for="titre">Audio converter</label>
             </div>
-            <form name="f2" method="post" action="donnee.php" class="w3-container">
+            <form name="f2" method="post" class="w3-container">
                 <div class="formulaire">
                     <div class="information">
                         <label class="information">Vous pouvez convertir un audio en texte à partir d'un lien youtube, 
@@ -34,65 +35,16 @@
                         <div class="fichier_audio_container">
                             <div class="fichier_audio">
                                 <label>Fichier:</label>
-                                <!-- image-preview-filename input [CUT FROM HERE]-->
-                                <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                                    <span class="input-group-btn">
-                                        <!-- image-preview-clear button -->
-                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                            <span class="glyphicon glyphicon-remove"></span> Clear
-                                        </button>
-                                        <!-- image-preview-input -->
-                                        <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                            <span class="image-preview-input-title">Browse</span>
-                                            <input onchange="processAudio()" type="file" name="input-file-preview" id="fichier"/> <!-- rename it -->
-                                        </div>
-                                    </span>
-                                </div><!-- /input-group image-preview [TO HERE]--> 
+                                <input onchange="processAudio()" class="custom-file-input" type="file" name="input-file-preview" id="fichier" value="fichier.wav"/>
                             </div>                        
-                        </div>
-                        <div class="bouton">
-                            <button id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
                         </div>
                     </div>
                 </div>
-                
             </form>
+			<div class="bouton">
+				<button onclick="getJobIdUrl()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
+			</div>
       </div>
-        <script type="text/javascript">
-			function processAudio(){
-				const audioFile = window.URL.createObjectURL(document.getElementById('fichier').files[0]);
-				
-				var audioTag = document.createElement('div');
-				audioTag.innerHTML = "<p>This is the original file</p><audio controls><source src='"+ audioFile +"' type='audio/ogg'>'"+audioFile+"'</audio><p>This is the altered file</p><audio crossOrigin='anonymous' controls id='alteredAudio'><source src='"+ audioFile +"' type='audio/ogg'>'"+audioFile+"'</audio>";
-				var audioSpace = document.getElementById("audio_space");
-				audioSpace.appendChild(audioTag);
-				
-				//Audio processing logic
-				var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-				var player = document.getElementById("alteredAudio");
-				
-				var mediaElement = player;
-
-				var gainNode = audioCtx.createGain();
-				var lowpass = audioCtx.createBiquadFilter();
-				var highpass = audioCtx.createBiquadFilter();
-
-				source = audioCtx.createMediaElementSource(mediaElement);
-				source.connect(lowpass);
-				lowpass.connect(highpass);
-				highpass.connect(gainNode);
-				gainNode.connect(audioCtx.destination);
-
-				lowpass.type = "highpass";
-				lowpass.frequency.value = 500;
-				lowpass.gain.value = -1;
-				highpass.type = "lowpass";
-				highpass.frequency.value = 5000;
-				highpass.gain.value = -1;
-				
-			}
-        </script>
+        
     </body>
 </html>
