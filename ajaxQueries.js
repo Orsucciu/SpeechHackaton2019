@@ -98,7 +98,7 @@ function getJobFile(locale){
 		}
 	});
 	//changement audio et video src puis  test en js pour mettre la visibillity none to block ou inline
-	document.getElementById("video").src = file_data;
+	document.getElementById("video").src = window.URL.createObjectURL(file_data);
 }
 
 function getJsonQ(job){

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form with W3.CSS Template</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/indexcss.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
+		<script type="text/javascript" src="ajaxOffline.js"></script>
+		<script type="text/javascript" src="checkInputs.js"></script>
+		<script type="text/javascript" src="displays.js"></script>
+		<script type="text/javascript" src="timestamp.js"></script>
+    </head>
+    <body>
+	<div id="firstI">
+        <div class="container">
+            <div class="titre">
+                <div class="logo_titre">
+                    <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                </div>
+                <div class="titre_lbl">
+                    <label class="titre_label" for="titre">Audio converter</label>
+                </div>
+            </div>
+            <form name="f2" method="post" class="w3-container">
+                <div class="formulaire">
+                    <div class="information">
+                        <label class="information">Vous pouvez convertir un audio en texte à partir d'un lien youtube, 
+                            ou en selectionnant un fichier audio.
+                        </label>
+                    </div>
+                    <div class="upload">
+                        <div class="video_url_container">
+                            <div class="video_url">
+                                <label for='url'>URL:</label>
+                                <div class="barre_url">
+                                    <input onchange="conditionalInput(this.id)" class="url" type="text" name="url" id='url' value=""/></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fichier_audio_container">
+                            <div class="fichier_audio">
+                                <label>Fichier:</label>
+                                <input onchange="conditionalInput(this.id)" class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="local">
+                    <div class="section_local">
+                        <p>Select a locale</p>
+                        <input list="locales" id="locale">                    
+                        <datalist id="locales">
+                            <option value="en-gb">
+                            <option value="en-US">
+                            <option value="fr-fr">
+                        </datalist>   
+                    </div>                                     
+                </div>				  
+            </form>
+			<div id="zone" class="bouton">
+				<button onclick="affichageSec()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
+			</div>
+      </div>  
+
+      </div>
+      
+
+      <div id="secondI" style="display:none;">
+        
+
+	  <div class="container retour">
+            <div class="titre">
+                <div class="logo_titre">
+                    <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                </div>
+                <div class="titre_lbl">
+                    <label class="titre_label" for="titre">Audio converter</label>
+                </div>
+            </div>
+            <form name="f2" class="w3-container form_retour">
+                <div class="formulaire_retour">
+                    <div class="affichage">
+                        <div class="titre_video">
+                            <label class="titre_video"></label>
+                        </div>
+                        <div class="miniature">
+                            <div class="col-md-8">
+                                <div class="player">
+                                    <video id="video" class="video" controls><source src="MacronGJ.mp4" type="video/mp4"></video>
+
+                                </div><!--./vid -->                                    
+                            </div><!--.col -->
+                        </div>
+                        <div class="affichage_texte">
+                            <div class="lbl_recherche_mot">
+                                <label class="label_recherche_mot">Transcription de l'audio en texte :</label>
+                            </div>
+                            <div class="affichage_zone_texte">
+								<textarea id="message" class="zone_text" value=""></textarea>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="recherche">   
+                        <div class="section1">
+                            <div class="section_recherche_mot">
+                                <div class="lbl_recherche_mot">
+                                    <label class="label_recherche_mot">Entrez le mot à chercher :</label>
+                                </div>
+                                <div class="recherche_mot">
+                                    <input type="text" class="zone_rech_mot" id="rech_mot" >
+                                </div>
+                                <div class="bouton_recherche">
+                                    <button id="rech_mot_value" name="submit" type="submit" class="btn btn-success btn_recherche" onclick="searchTimeS(outId)">Rechercher</button>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="section2">
+                            <div class="section_affichage_mot">
+                                <div class="temps">
+                                    <label class="label_recherche_mot">Résultats :</label>
+                                </div>
+                                <div class="temps_mot">
+                                    <textarea class="text_temps_mot"></textarea>
+                                </div>
+                                <div class="temps">
+                                    <!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                </div>                   
+            </form>
+        </div>
+		</div>
+    </body>
+</html>
