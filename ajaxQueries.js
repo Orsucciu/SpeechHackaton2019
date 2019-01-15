@@ -3,6 +3,8 @@ var jobID;
 // TEST EN LOCAL: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?file=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7'';
 //'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
 var APIKEY = "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
+var button = document.getElementById("submit");
+var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.gif'>";
 
 function getData(){
 	var loc = document.getElementById("locale").value;
@@ -16,6 +18,7 @@ function getData(){
 
 // Recuperation du JobID -> URL
 function getJobIdUrl(url, loc) {
+	document.getElementById("zone").innerHTML = loadingGif;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -34,8 +37,10 @@ function getJson() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
-	  return(this.reponseText);
+		document.getElementById("status").value = "Done!";
+		document.getElementById("loading").visibility = "hidden";
+		document.getElementById("zone").innerHTML = "";
+		console.log(this.responseText);
     }
   };
   var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey="+APIKEY;
@@ -44,6 +49,7 @@ function getJson() {
 }
 
 function getJobFile(locale){
+	document.getElementById("zone").innerHTML = loadingGif;
 	var file_data = $('#fichier').prop('files')[0];
 	var form_data = new FormData();    
 	form_data.append('file', file_data);
@@ -62,8 +68,10 @@ function getJsonQ(job){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
+		document.getElementById("status").value = "Done!";
+		document.getElementById("loading").visibility = "hidden";
+		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
-	  console.log(this.reponseText);
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
