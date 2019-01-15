@@ -2,13 +2,15 @@ var jobID;
 //var furl = "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
 // TEST EN LOCAL: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?file=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7'';
 //'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
-var APIKEY = "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
+var APIKEY = "ec308c92-e49b-4f9e-a256-9745e8b5c689";
+// old key: "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
 var button = document.getElementById("submit");
 var loadingGif = "<p id='status'>Loading....</p><img id='loading' src='loading.gif'>";
 
 var jsonString = "";
 var JSONFILE;
 
+var jsonFile;
 //tableau de mots
 var mots = [];
 
@@ -36,6 +38,8 @@ function getJobIdUrl(url, loc) {
   };
   xhttp.open("POST", "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url="+url+"&language_model="+loc+"&apikey="+APIKEY, true);
   xhttp.send();
+  //ajout sur audio et video
+  document.getElementById("video").src = url;
 }
 
 // Recuperation du JSON
@@ -94,6 +98,8 @@ function getJobFile(locale){
 			getJsonQ(responseText);
 		}
 	});
+	//changement audio et video src puis  test en js pour mettre la visibillity none to block ou inline
+	document.getElementById("video").src = window.URL.createObjectURL(file_data);
 }
 
 function getJsonQ(job){
@@ -105,7 +111,7 @@ function getJsonQ(job){
 		document.getElementById("zone").innerHTML = "";
 	  console.log(this.responseText);
 	  reloadResponse(this.responseText);
-	  JSONFILE = this.responseText;
+	  jsonFile = this.responseText;
 	}
 	};
 	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
