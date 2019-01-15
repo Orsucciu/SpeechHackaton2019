@@ -13,8 +13,13 @@
     <body>        
         <div class="container retour">
             <div class="titre">
-                <label class="titre_label" for="titre">Audio converter</label>
-            </div>
+                    <div class="logo_titre">
+                        <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                    </div>
+                    <div class="titre_lbl">
+                        <label class="titre_label" for="titre">Audio converter</label>
+                    </div>
+                </div>
             <form name="f2" method="post" action="donnee.php" class="w3-container form_retour">
                 <div class="formulaire_retour">
                     <div class="affichage">
@@ -33,13 +38,16 @@
                                 <label class="label_recherche_mot">Transcription de l'audio en texte :</label>
                             </div>
                             <div class="affichage_zone_texte">
-                                <input type="text" class="zone_text">
+                                <textarea class="zone_text"></textarea>
                             </div>                            
                         </div>
                     </div>
                     <div class="recherche">   
                         <div class="section1">
                             <div class="section_recherche_mot">
+                                <div class="lbl_recherche_mot">
+                                    <label class="label_recherche_mot">Entrez le mot à chercher :</label>
+                                </div>
                                 <div class="recherche_mot">
                                     <input type="text" class="zone_rech_mot">
                                 </div>
@@ -50,8 +58,11 @@
                         </div>
                         <div class="section2">
                             <div class="section_affichage_mot">
-                                <div class="nb_occurences">
-                                    nb occurences
+                                <div class="temps">
+                                    <label class="label_recherche_mot">Résultats :</label>
+                                </div>
+                                <div class="temps_mot">
+                                    <textarea class="text_temps_mot"></textarea>
                                 </div>
                                 <div class="temps">
                                     <!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->

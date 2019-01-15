@@ -13,18 +13,24 @@
 		<script type="text/javascript" src="ajaxQueries.js"></script>
 		<script type="text/javascript" src="checkInputs.js"></script>
 		<script type="text/javascript" src="displays.js"></script>
+		<script type="text/javascript" src="timestamp.js"></script>
     </head>
     <body>
 	<div id="firstI">
         <div class="container">
             <div class="titre">
-                <label class="titre_label" for="titre">Audio converter</label>
+                <div class="logo_titre">
+                    <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                </div>
+                <div class="titre_lbl">
+                    <label class="titre_label" for="titre">Audio converter</label>
+                </div>
             </div>
             <form name="f2" method="post" class="w3-container">
                 <div class="formulaire">
                     <div class="information">
                         <label class="information">Vous pouvez convertir un audio en texte à partir d'un lien youtube, 
-                            ou en téléversant votre fichier audio.
+                            ou en selectionnant un fichier audio.
                         </label>
                     </div>
                     <div class="upload">
@@ -42,29 +48,41 @@
                                 <input onchange="conditionalInput(this.id)" class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
                             </div>                        
                         </div>
-
                     </div>
                 </div>
-				  <input list="locales" id="locale">
-				  <datalist id="locales">
-					<option value="en-gb">
-					<option value="en-US">
-					<option value="fr-fr">
-				  </datalist>
-				  <p>Select a locale</p>
+                <div class="local">
+                    <div class="section_local">
+                        <p>Select a locale</p>
+                        <input list="locales" id="locale">                    
+                        <datalist id="locales">
+                            <option value="en-gb">
+                            <option value="en-US">
+                            <option value="fr-fr">
+                        </datalist>   
+                    </div>                                     
+                </div>				  
             </form>
 			<div id="zone" class="bouton">
 				<button onclick="getData()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
 			</div>
+      </div>  
+
       </div>
-	  
-	  </div>
-	  <div id="secondI" style="display:none;">
+      
+
+      <div id="secondI" style="display:none;">
+        
+
 	  <div class="container retour">
             <div class="titre">
-                <label class="titre_label" for="titre">Audio converter</label>
+                <div class="logo_titre">
+                    <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                </div>
+                <div class="titre_lbl">
+                    <label class="titre_label" for="titre">Audio converter</label>
+                </div>
             </div>
-            <form name="f2" method="post" action="donnee.php" class="w3-container form_retour">
+            <form name="f2" class="w3-container form_retour">
                 <div class="formulaire_retour">
                     <div class="affichage">
                         <div class="titre_video">
@@ -72,8 +90,9 @@
                         </div>
                         <div class="miniature">
                             <div class="col-md-8">
-                                <div class="vid">
-                                    <iframe width="350" height="200" src="https://www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+                                <div class="player">
+                                    <video id="video" class="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
+
                                 </div><!--./vid -->                                    
                             </div><!--.col -->
                         </div>
@@ -82,25 +101,31 @@
                                 <label class="label_recherche_mot">Transcription de l'audio en texte :</label>
                             </div>
                             <div class="affichage_zone_texte">
-                                <input id="message" type="text" class="zone_text" value="">
+								<textarea id="message" class="zone_text" value=""></textarea>
                             </div>                            
                         </div>
                     </div>
                     <div class="recherche">   
                         <div class="section1">
                             <div class="section_recherche_mot">
+                                <div class="lbl_recherche_mot">
+                                    <label class="label_recherche_mot">Entrez le mot à chercher :</label>
+                                </div>
                                 <div class="recherche_mot">
                                     <input type="text" class="zone_rech_mot" id="rech_mot" >
                                 </div>
                                 <div class="bouton_recherche">
-                                    <button id="rech_mot_value" name="submit" type="submit" class="btn btn-success btn_recherche" onclick="rechmot()">Rechercher</button>
+                                    <button id="rech_mot_value" name="submit" type="submit" class="btn btn-success btn_recherche" onclick="searchTimeS(outId)">Rechercher</button>
                                 </div>
                             </div>                            
                         </div>
                         <div class="section2">
                             <div class="section_affichage_mot">
-                                <div class="nb_occurences">
-                                    nb occurences
+                                <div class="temps">
+                                    <label class="label_recherche_mot">Résultats :</label>
+                                </div>
+                                <div class="temps_mot">
+                                    <textarea class="text_temps_mot"></textarea>
                                 </div>
                                 <div class="temps">
                                     <!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->
