@@ -145,13 +145,13 @@ function searchTimeS(outId){
 			out += line;
 		}
 	}
-	document.getElementById(+outId+).innerHTML = out;
+	document.getElementById(outId).innerHTML = out;
 }
 
 function jump(playerId, valueId){
 	
-	var value = document.getElementById(+valueId+).value;
-	var player = document.getElementById(+playerId+);
+	var value = document.getElementById(valueId).value;
+	var player = document.getElementById(playerId);
 	
 	player.currentTime = value
 }
