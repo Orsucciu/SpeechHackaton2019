@@ -22,21 +22,7 @@
 		<div id="audio_space"></div>
 		
         <script type="text/javascript">
-			$(document).ready(function(){
-			  $("#ajTest").click(function(){
-				$.ajax({
-					url: 'http://api.havenondemand.com/1/api/async/recognizespeech/v2',
-					type: 'POST',
-					data: ,
-					beforeSend: function(xhr) {
-						 xhr.setRequestHeader("Authentication", "Basic ZnJvbWFwcGx********uOnRoM24zcmQ1UmgzcjM=") //Some characters have been replaced for security but this is a true BASE64 of "username:password"
-					},
-					success: function(data){
-						alert(data);
-					}
-				});
-			  });
-			});
+			
         </script>
     </body>
 </html>

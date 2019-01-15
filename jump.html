@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form with W3.CSS Template</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="bootstrap/css/indexcss.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    </head>
+    <body>        
+        <h1>SIMPLE JUMP TO TIMESTAMP</h1>
+		<video id="video" controls><source src="foxVideo.mp4" type="video/mp4"></video>
+		<audio id="audio" controls><source src="foxAudio.wav" type='audio/ogg'></audio>
+		<p>JUMP TO : <input id="jump" type="text" value="0"></p>
+		<button onclick="jump()">GO TO time</button>
+		
+		<script>
+			function jump(){
+				var value = document.getElementById("jump").value;
+				var video = document.getElementById("video");
+				var audio = document.getElementById("audio");
+				
+				video.currentTime = value;
+				audio.currentTime = value;
+			}
+		</script>
+	</body>
+</html>
