@@ -8,18 +8,27 @@
         <link href="bootstrap/css/indexcss.css" rel="stylesheet">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-        <script type="text/javascript" src="bootstrap//js/indexjs.js"></script>
+		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
+		<script type="text/javascript" src="ajaxQueries.js"></script>
+		<script type="text/javascript" src="checkInputs.js"></script>
+		<script type="text/javascript" src="displays.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="titre">
-                <label class="titre_label" for="titre">Audio converter</label>
+                <div class="logo_titre">
+                    <img class="logo" src="img/qwant.png" height="100%" width="100%">
+                </div>
+                <div class="titre_lbl">
+                    <label class="titre_label" for="titre">Audio converter</label>
+                </div>
             </div>
-            <form name="f2" method="post" action="donnee.php" class="w3-container">
+            <form name="f2" method="post" class="w3-container">
                 <div class="formulaire">
                     <div class="information">
                         <label class="information">Vous pouvez convertir un audio en texte à partir d'un lien youtube, 
-                            ou en téléversant votre fichier audio.
+                            ou en selectionnant un fichier audio.
                         </label>
                     </div>
                     <div class="upload">
@@ -27,42 +36,34 @@
                             <div class="video_url">
                                 <label for='url'>URL:</label>
                                 <div class="barre_url">
-                                    <input class="url" type="text" name="url" id='url'/></p>
+                                    <input onchange="conditionalInput(this.id)" class="url" type="text" name="url" id='url' value=""/></p>
                                 </div>
                             </div>
                         </div>
                         <div class="fichier_audio_container">
                             <div class="fichier_audio">
                                 <label>Fichier:</label>
-                                <!-- image-preview-filename input [CUT FROM HERE]-->
-                                <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                                    <span class="input-group-btn">
-                                        <!-- image-preview-clear button -->
-                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                            <span class="glyphicon glyphicon-remove"></span> Clear
-                                        </button>
-                                        <!-- image-preview-input -->
-                                        <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                            <span class="image-preview-input-title">Browse</span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
-                                        </div>
-                                    </span>
-                                </div><!-- /input-group image-preview [TO HERE]--> 
+                                <input onchange="conditionalInput(this.id)" class="custom-file-input" type="file" name="input-file-preview" id="fichier"/>
                             </div>                        
-                        </div>
-                        <div class="bouton">
-                            <button id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
                         </div>
                     </div>
                 </div>
-                
+                <div class="local">
+                    <div class="section_local">
+                        <p>Select a locale</p>
+                        <input list="locales" id="locale">                    
+                        <datalist id="locales">
+                            <option value="en-gb">
+                            <option value="en-US">
+                            <option value="fr-fr">
+                        </datalist>   
+                    </div>                                     
+                </div>				  
             </form>
-        </div>
-
-        <script type="text/javascript">
-
-        </script>
+			<div id="zone" class="bouton">
+				<button onclick="getData()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
+			</div>
+      </div>
+        
     </body>
 </html>
