@@ -1,1 +1,0 @@
-# SpeechHackaton2019
