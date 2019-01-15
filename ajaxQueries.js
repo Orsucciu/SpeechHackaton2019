@@ -25,7 +25,7 @@ function getJobIdUrl(url, loc) {
 	  getJson();
     }
   };
-  xhttp.open("POST", "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url="+url+"&language_model="+loc+"&apikey="+APIKEY;, true);
+  xhttp.open("POST", "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url="+url+"&language_model="+loc+"&apikey="+APIKEY, true);
   xhttp.send();
 }
 
