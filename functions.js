@@ -126,9 +126,9 @@ function conditionalInput(){
     }
 }
 
-function searchTimeS(outId){
+function searchTimeS(outId, word){
 	var out = "";
-	var json = JSONFILE;
+	var json = JSON.parse(JSONFILE);
 	for (var data in json.actions[0].result.items){
 		if(json.actions[0].result.items[data].text == word){
 			console.log(data);
@@ -141,17 +141,16 @@ function searchTimeS(outId){
 			if(parseInt(data, 10) < json.actions[0].result.items.length){
 				next = json.actions[0].result.items[parseInt(data, 10) + 1];
 			}
-			var line = "<p onclick='jump("+current.start_time_offset+")'>"+precedent.text+" "+current.text+ " " + next.text+"</p>";
+			var line = "<p onclick='jump("+current.start_time_offset+")'>"+precedent.text+" <b>"+current.text+ "</b> " + next.text+"</p>";
 			out += line;
 		}
 	}
-	document.getElementById(outId).innerHTML = out;
+	document.getElementById("areaResults").innerHTML = out;
 }
 
-function jump(playerId, valueId){
-	
-	var value = document.getElementById(valueId).value;
-	var player = document.getElementById(playerId);
+function jump(value){
+
+	var player = document.getElementById("video");
 	
 	player.currentTime = value
 }

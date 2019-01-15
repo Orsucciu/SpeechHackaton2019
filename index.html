@@ -110,7 +110,7 @@
 								<input type="text" class="zone_rech_mot" id="rech_mot" >
 							</div>
 							<div class="bouton_recherche">
-								<button id="rech_mot_value" onclick="searchTimeS(outId)">Rechercher</button>
+								<button id="rech_mot_value" onclick="searchTimeS(document.getElementById('areaResults'), document.getElementById('rech_mot').value)">Rechercher</button>
 							</div>
 						</div>                            
 					</div>
@@ -119,11 +119,7 @@
 							<div class="temps">
 								<label class="label_recherche_mot">Résultats :</label>
 							</div>
-							<div class="temps_mot">
-								<textarea class="text_temps_mot"></textarea>
-							</div>
-							<div class="temps">
-								<!-- <textarea class="affichage_temps" name="affichage_temps" rows="5" cols="33"></textarea> -->
+							<div id="areaResults">
 							</div>
 						</div> 
 					</div>
