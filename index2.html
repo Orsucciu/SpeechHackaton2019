@@ -5,6 +5,7 @@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
     <body>
         </div>
         <form name="f2" method="post" action="donnee.php" class="w3-container">        
@@ -14,44 +15,28 @@
             <p>ou</p>
             <p>
             <label>Fichier:</label>
-            <input onchange='processAudio()' class="w3-input" type="file" name="fichier" id='fichier'/></p>
-
-            <button onclick="valider()">Soumettre</button></p>
+            <input class="w3-input" type="file" name="fichier" id='fichier'/></p>
         </form>
+		<button id="ajTest">Soumettre</button></p>
 		<h1 id="dl"></h1>
 		<div id="audio_space"></div>
 		
         <script type="text/javascript">
-function processAudio(){
-	const audioFile = window.URL.createObjectURL(document.getElementById('fichier').files[0]);
-				
-	var audioTag = document.createElement('div');
-	audioTag.innerHTML = "<p>This is the original file</p><audio controls><source src='"+ audioFile +"' type='audio/ogg'>'"+audioFile+"'</audio><p>This is the altered file</p><audio crossOrigin='anonymous' controls id='alteredAudio'><source src='"+ audioFile +"' type='audio/ogg'>'"+audioFile+"'</audio>";
-	var audioSpace = document.getElementById("audio_space");
-	audioSpace.appendChild(audioTag);
-	
-	//Audio processing logic
-	var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-	var player = document.getElementById("alteredAudio");
-	
-	var mediaElement = player;
-
-	var gainNode = audioCtx.createGain();
-	var lowpass = audioCtx.createBiquadFilter();
-	var highpass = audioCtx.createBiquadFilter();
-
-	source = audioCtx.createMediaElementSource(mediaElement);
-	source.connect(lowpass);
-	lowpass.connect(highpass);
-	highpass.connect(gainNode);
-	gainNode.connect(audioCtx.destination);
-
-	lowpass.type = "highpass";
-	lowpass.frequency.value = 500;
-	lowpass.gain.value = -1;
-	highpass.type = "lowpass";
-	highpass.frequency.value = 5000;
-	highpass.gain.value = -1;
+			$(document).ready(function(){
+			  $("#ajTest").click(function(){
+				$.ajax({
+					url: 'http://api.havenondemand.com/1/api/async/recognizespeech/v2',
+					type: 'POST',
+					data: ,
+					beforeSend: function(xhr) {
+						 xhr.setRequestHeader("Authentication", "Basic ZnJvbWFwcGx********uOnRoM24zcmQ1UmgzcjM=") //Some characters have been replaced for security but this is a true BASE64 of "username:password"
+					},
+					success: function(data){
+						alert(data);
+					}
+				});
+			  });
+			});
         </script>
     </body>
 </html>
