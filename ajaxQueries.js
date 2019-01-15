@@ -1,12 +1,21 @@
 var jobID;
-var furl = "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
+//var furl = "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=https%3A%2F%2Fwww.havenondemand.com%2Fsample-content%2Fvideos%2Fhpnext.mp4&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
 // TEST EN LOCAL: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?file=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7'';
 //'https://api.havenondemand.com/1/api/async/recognizespeech/v2?url=@MacronGJ&language_model=en-us&apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7';
+var APIKEY = "4bf6fe7e-fd9b-47c6-bdc6-38e3b70da60e";
 
-
+function getData(){
+	var loc = document.getElementById("locale").value;
+	if (document.getElementById("url").value == ""){
+		getJobFile(loc);
+	}else {
+		var url = document.getElementById("url").value;
+		getJobIdUrl(url, loc);
+	}
+}
 
 // Recuperation du JobID -> URL
-function getJobIdUrl() {
+function getJobIdUrl(url, loc) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -16,7 +25,7 @@ function getJobIdUrl() {
 	  getJson();
     }
   };
-  xhttp.open("POST", furl, true);
+  xhttp.open("POST", "https://api.havenondemand.com/1/api/async/recognizespeech/v2?url="+url+"&language_model="+loc+"&apikey="+APIKEY;, true);
   xhttp.send();
 }
 
@@ -29,7 +38,35 @@ function getJson() {
 	  return(this.reponseText);
     }
   };
-  var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey=690c5e3e-6517-45b2-b340-9eaa372d63e7";
+  var link = "https://api.havenondemand.com/1/job/result/" + jobID + "?apikey="+APIKEY;
   xhttp.open("GET", link, true);
   xhttp.send();
+}
+
+function getJobFile(locale){
+	var file_data = $('#fichier').prop('files')[0];
+	var form_data = new FormData();    
+	form_data.append('file', file_data);
+	$.ajax({
+		url: 'https://api.havenondemand.com/1/api/async/recognizespeech/v2?apikey='+APIKEY+'&language_model='+locale,
+		type: 'POST',
+		data: form_data,
+		contentType: false,
+		processData: false,
+		success: function(responseText){
+			getJsonQ(responseText);
+		}
+	});
+}
+function getJsonQ(job){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	  console.log(this.responseText);
+	  console.log(this.reponseText);
+	}
+	};
+	var link = "https://api.havenondemand.com/1/job/result/" + job["jobID"] + "?apikey="+APIKEY;
+	xhttp.open("GET", link, true);
+	xhttp.send();
 }

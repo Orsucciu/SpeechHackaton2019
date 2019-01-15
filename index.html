@@ -8,6 +8,7 @@
         <link href="bootstrap/css/indexcss.css" rel="stylesheet">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+		<script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="bootstrap/js/indexjs.js"></script>
 		<script type="text/javascript" src="ajaxQueries.js"></script>
 		<script type="text/javascript" src="checkInputs.js"></script>
@@ -29,7 +30,7 @@
                             <div class="video_url">
                                 <label for='url'>URL:</label>
                                 <div class="barre_url">
-                                    <input onchange="conditionalInput()" class="url" type="text" name="url" id='url'/></p>
+                                    <input onchange="conditionalInput()" class="url" type="text" name="url" id='url' value=""/></p>
                                 </div>
                             </div>
                         </div>
@@ -41,9 +42,16 @@
                         </div>
                     </div>
                 </div>
+				  <input list="locales" id="locale">
+				  <datalist id="locales">
+					<option value="en-gb">
+					<option value="en-US">
+					<option value="fr-fr">
+				  </datalist>
+				  <p>Select a locale</p>
             </form>
 			<div class="bouton">
-				<button onclick="getJobIdUrl()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
+				<button onclick="getData()" id="submit" name="submit" type="submit" class="btn btn-success">Envoyer</button>
 			</div>
       </div>
         
