@@ -1531,8 +1531,18 @@
 				var out = "";
 				for (var data in json.actions[0].result.items){
 					if(json.actions[0].result.items[data].text == word){
-						console.log("found one");
-						out = "<p onclick='jump("+out.concat(json.actions[0].result.items[data].start_time_offset)+")'>"+out.concat(json.actions[0].result.items[data].start_time_offset)+"</p>";
+						console.log(data);
+						var current = json.actions[0].result.items[data];
+						var precedent = "[Begin of File]";
+						if(data > 1){
+							precedent = json.actions[0].result.items[data-1];
+						}
+						var next = "[End of File]";
+						if(parseInt(data, 10) < json.actions[0].result.items.length){
+							next = json.actions[0].result.items[parseInt(data, 10) + 1];
+						}
+						var line = "<p onclick='jump("+current.start_time_offset+")'>"+precedent.text+" "+current.text+ " " + next.text+"</p>";
+						out += line;
 					}
 				}
 				document.getElementById("results").innerHTML = out;
