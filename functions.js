@@ -154,3 +154,38 @@ function jump(value){
 	
 	player.currentTime = value
 }
+
+function jsonToSrt(){
+	
+	var out = "";
+	var json = JSON.parse(JSONFILE);
+	for (var data in json.actions[0].result.items){
+		
+		var line = json.actions[0].result.items[data];
+		out += data +"\n";
+		out += line.start_time_offset + " --> " + line.end_time_offset+"\n";
+		out += line.text+"\n";
+		
+	}
+	console.log(out);
+	downloadSrt(out);
+}
+
+function downloadSrt(srtData){
+
+	var file = new Blob([srtData], {type: "text/plain"});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, "captions.srt");
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = "captions.srt";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
+}
